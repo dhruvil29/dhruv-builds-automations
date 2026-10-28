@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dhruv Builds Automations — Backtest Reality Check</title>
+<meta name="description" content="Backtest Reality Check: an independent statistical audit of your trading strategy backtest. Statistics and education only — never financial advice.">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; color: #1a1a1a; line-height: 1.6; }
+  header, section, footer { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+  header { padding-top: 48px; }
+  h1 { font-size: 2rem; margin: 0 0 8px; }
+  h2 { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 24px; }
+  .tagline { font-size: 1.15rem; color: #444; }
+  .tiers { display: grid; gap: 16px; }
+  @media (min-width: 640px) { .tiers { grid-template-columns: 1fr 1fr 1fr; } }
+  .tier { border: 1px solid #ccc; border-radius: 10px; padding: 18px; }
+  .tier h3 { margin-top: 0; }
+  .price { font-size: 1.6rem; font-weight: 700; margin: 4px 0 12px; }
+  .disclaimer { background: #fff8e1; border: 1px solid #e6c87a; border-radius: 10px; padding: 18px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+  a { color: #0b5fff; }
+  footer { color: #555; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Dhruv Builds Automations</h1>
+  <p class="tagline">Backtest Reality Check — an independent audit of your trading strategy backtest.</p>
+  <p>Your backtest says +40%. The question is whether that number survives honest math.</p>
+</header>
+
+<section>
+  <h2>What the audit does</h2>
+  <p>Backtest Reality Check is an independent validation lab for retail algo strategies (TradingView/Pine, Python, IBKR). We reproduce your backtest from your stated rules, then stress it with the same checks institutional quants use:</p>
+  <ul>
+    <li><strong>Deflated Sharpe ratio</strong> — corrects for how many variants you tried, so a winner picked from dozens of attempts is not mistaken for an edge.</li>
+    <li><strong>Trade-concentration analysis</strong> — is one lucky trade carrying the whole result?</li>
+    <li><strong>Risk-mechanics review</strong> — your stops, caps, and position sizing, checked against the rules you stated.</li>
+  </ul>
+  <p>You get a written report with a <strong>PASS / FLAGGED / FAIL</strong> verdict on each section and the number behind every verdict. If your strategy is fragile, the report tells you exactly where — before the market does.</p>
+  <h3>What you send us</h3>
+  <p>Your strategy rules or code, the instruments, and the period you tested. We never need — and will never ask for — your brokerage login or account access.</p>
+</section>
+
+<section>
+  <h2>Tiers</h2>
+  <div class="tiers">
+    <div class="tier">
+      <h3>Basic — Sanity Check</h3>
+      <p class="price">$49 USD</p>
+      <ul>
+        <li>One strategy sanity check</li>
+        <li>Reproduced backtest</li>
+        <li>Deflated Sharpe screen</li>
+        <li>Verdict report (PDF)</li>
+        <li>1 strategy, 1 instrument set, 1 period</li>
+        <li>Delivery: 3 days</li>
+        <li>1 revision (data / rule clarifications)</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h3>Standard — Full Audit</h3>
+      <p class="price">$149 USD</p>
+      <ul>
+        <li>1 strategy, up to 10 instruments, 2-year default period</li>
+        <li>Deflated Sharpe + concentration + drawdown checks</li>
+        <li>Position-sizing math review</li>
+        <li>PDF report + trade-level CSV so you can check our math</li>
+        <li>Delivery: 5 days</li>
+        <li>1 revision</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h3>Premium — Audit + Robustness</h3>
+      <p class="price">$349 USD</p>
+      <ul>
+        <li>Everything in Standard, plus:</li>
+        <li>Parameter-neighbourhood sweep</li>
+        <li>Walk-forward split</li>
+        <li>Guardrail specification you can implement (caps, kill-switch thresholds)</li>
+        <li>PDF + CSV + 30-minute walkthrough call (screen-share, educational)</li>
+        <li>Delivery: 7–10 days</li>
+        <li>2 revisions</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>How honest the report is — a real sample</h2>
+  <p>Our sample audit excerpt covers a channel-breakout strategy tested over 2 years on 10 US and 10 Canadian tickers. The profit factors looked strong in isolation — and both cells were still verdict FLAGGED:</p>
+  <table>
+    <tr><th>Universe</th><th>Trades</th><th>Profit factor</th><th>Net return</th><th>Verdict</th></tr>
+    <tr><td>US universe</td><td>64</td><td>2.18</td><td>+14.55%</td><td>FLAGGED</td></tr>
+    <tr><td>Canadian universe</td><td>40</td><td>3.26</td><td>+29.7%</td><td>FLAGGED</td></tr>
+  </table>
+  <p>Why: across 53 evaluated variants, the raw Sharpe was about 0.17, and after deflating for the number of trials the deflated Sharpe ratio was <strong>0.0 against a 0.95 required threshold</strong> — statistically indistinguishable from the best of many random trials. A strategy can be simultaneously “+29.7% in backtest” and “no statistical evidence of edge.” Both statements are in the report because both are true. Where a check was not evaluated, the report says so rather than papering over the gap.</p>
+</section>
+
+<section>
+  <h2>Common questions</h2>
+  <p><strong>Is this financial advice?</strong><br>No. It is a statistical audit of a backtest you provide — educational research. We do not recommend buying, selling, or trading anything.</p>
+  <p><strong>What if my strategy fails the audit?</strong><br>Then the audit did its job. You get the exact weakness (overfitting, concentration, unrealistic fills) in writing, plus what evidence would change the verdict.</p>
+  <p><strong>Which platforms?</strong><br>Pine Script / TradingView exports, Python strategies, or rules written in plain English. IBKR-based hobbyist setups included.</p>
+  <p><strong>Can you guarantee my strategy will be profitable live?</strong><br>No — and anyone who does is selling you something else. Backtests describe the past under assumptions; the report states those assumptions explicitly.</p>
+  <p><strong>Do you optimize or tune my strategy?</strong><br>No. The Premium tier tests neighbouring parameter values for fragility. Changing parameters until a test passes is exactly the overfitting this service exists to catch.</p>
+</section>
+
+<section>
+  <div class="disclaimer">
+    <h2 style="margin-top:0; border-top:none; padding-top:0;">Important disclaimer</h2>
+    <p>This is a statistics and software service. It is educational research about your strategy's historical behaviour. It is <strong>not financial advice, not a signal service, and not managed money</strong>. No result is a promise of future performance. Backtests describe the past under stated assumptions and do not predict future results.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Contact:</strong> <a href="mailto:d29killer@gmail.com">d29killer@gmail.com</a></p>
+  <p>Dhruv Builds Automations — Backtest Reality Check.</p>
+</footer>
+</body>
+</html>
